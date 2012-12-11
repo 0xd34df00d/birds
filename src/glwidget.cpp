@@ -84,6 +84,11 @@ void GLWidget::draw_hull()
 	// Draw input segments.
 	glColor3f (0.0f, 1.0f, 0.0f);
 	glLineWidth (3.f);
-	drawSegments (hull_data_, shift_);
+
+	decltype (hull_data_) filtered;
+	std::copy_if (hull_data_.begin (), hull_data_.end (), std::back_inserter (filtered),
+			[this] (decltype (hull_data_.front ()) item) { return true; });
+	drawSegments (filtered, shift_);
+
 	glEnd();
 }

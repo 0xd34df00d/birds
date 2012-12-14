@@ -13,6 +13,7 @@ set(SVMLIGHT_SRCS
 
 set(SRCS
 	main.cpp
+	image.cpp
 	)
 
 add_executable(birds WIN32 ${SVMLIGHT_SRCS} ${SRCS})

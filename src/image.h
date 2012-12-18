@@ -5,6 +5,7 @@
 #include <unordered_set>
 #include <limits>
 #include <stdexcept>
+#include <memory>
 #include <boost/polygon/voronoi.hpp>
 
 namespace bp = boost::polygon;
@@ -44,3 +45,5 @@ private:
 
 	void BuildSkeleton ();
 };
+
+typedef std::shared_ptr<Image> Image_ptr;

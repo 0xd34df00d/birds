@@ -185,6 +185,8 @@ void Image::BuildFullHull ()
 	{
 		const auto last = FullHull_.back ();
 		auto reachable = FullReachable_.at (last);
+		if (FullHull_.size () > 1)
+			reachable.erase (std::find (reachable.begin (), reachable.end (), *(++FullHull_.rbegin ())));
 		const auto& max = *std::max_element (reachable.begin (), reachable.end (),
 				[&last] (const Point_t& p1, const Point_t& p2)
 				{
